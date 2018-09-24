@@ -63,7 +63,7 @@ function! vebugger#pdb#_readWhere(pipeName,line,readResult,debugger)
 		endif
 
 		if 2<len(l:matches)
-			let l:file=l:matches[1]
+			let l:file=vebugger#util#WinShellSlash(l:matches[1])
 			if !empty(glob(l:file))
 				let l:line=str2nr(l:matches[2])
 				let a:readResult.std.location={
